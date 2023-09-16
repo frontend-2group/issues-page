@@ -52,6 +52,7 @@ const PageIssues = () => {
     if (endPage < lastPage) {
       dispatch(setStartPage(startPage + 10));
       dispatch(setEndPage(endPage + 10));
+      dispatch(setCurrentPage(11));
     }
   };
   const onStartBtn = () => {
@@ -71,13 +72,11 @@ const PageIssues = () => {
 
   return (
     <PaginationBtn>
-      <button onClick={onStartBtn}>맨처음</button>
-      <button onClick={onBefore}>◀</button>
-
+      <Button onClick={onStartBtn}>《</Button>
+      <Button onClick={onBefore}>〈</Button>
       {renderPageButtons()}
-
-      <button onClick={onNext}>▶</button>
-      <button onClick={onEndBtn}>마지막</button>
+      <Button onClick={onNext}>〉</Button>
+      <Button onClick={onEndBtn}>》</Button>
     </PaginationBtn>
   );
 };
@@ -86,4 +85,8 @@ export default PageIssues;
 const PaginationBtn = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const Button = styled.button`
+  font-weight: 900;
 `;
