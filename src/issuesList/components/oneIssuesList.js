@@ -1,8 +1,7 @@
+import { useEffect } from "react";
 import { styled } from "styled-components";
 
 const OneIssuesList = ({ issues }) => {
-  console.log(issues);
-
   const updatedAt = issues.updated_at.replace("T", "-").replace("Z", "");
   const createAt = issues.created_at.replace("T", "-").replace("Z", "");
 

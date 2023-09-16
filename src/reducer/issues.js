@@ -8,6 +8,9 @@ const octokit = new Octokit({
 const initialState = {
   issues: null,
   status: null,
+  currentPage: 1,
+  startPage: 1,
+  endPage: 10,
 };
 
 export const asyncIssues = createAsyncThunk(
@@ -26,7 +29,6 @@ export const asyncIssues = createAsyncThunk(
       }
     );
     const data = response.data;
-    console.log(response.data);
     return data;
   }
 );
@@ -38,7 +40,17 @@ export const issuesSlice = createSlice({
     getIssues: (state, action) => {
       state.issues = action.payload;
     },
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+    setStartPage: (state, action) => {
+      state.startPage = action.payload;
+    },
+    setEndPage: (state, action) => {
+      state.endPage = action.payload;
+    },
   },
+  // ---------------------------------
 
   extraReducers: (builder) => {
     builder.addCase(asyncIssues.pending, (state, action) => {
@@ -53,4 +65,5 @@ export const issuesSlice = createSlice({
   },
 });
 
-export const { getIssues } = issuesSlice.actions;
+export const { getIssues, setCurrentPage, setStartPage, setEndPage } =
+  issuesSlice.actions;
