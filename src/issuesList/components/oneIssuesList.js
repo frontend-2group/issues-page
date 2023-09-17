@@ -41,7 +41,8 @@ const IssuesListPage = styled.div`
 const IssuesListBox = styled.div`
   border: solid 1px #000;
   width: 80%;
-  height: 120px;
+  min-height: 120px;
+  height: auto;
   margin: 20px;
   &:hover {
     cursor: pointer;
