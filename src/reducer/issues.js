@@ -38,7 +38,7 @@ export const issuesSlice = createSlice({
   name: "issues",
   initialState,
   reducers: {
-    getIssues: (state, action) => {
+    setIssues: (state, action) => {
       state.issues = action.payload;
     },
     setCurrentPage: (state, action) => {
@@ -61,6 +61,7 @@ export const issuesSlice = createSlice({
       state.status = "Loading";
     });
     builder.addCase(asyncIssues.fulfilled, (state, action) => {
+      state.status = "success";
       state.issues = action.payload;
     });
     builder.addCase(asyncIssues.rejected, (state, action) => {
@@ -70,7 +71,7 @@ export const issuesSlice = createSlice({
 });
 
 export const {
-  getIssues,
+  setIssues,
   setCurrentPage,
   setStartPage,
   setEndPage,

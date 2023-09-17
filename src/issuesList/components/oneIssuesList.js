@@ -1,13 +1,23 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
 const OneIssuesList = ({ issues }) => {
+  const navigate = useNavigate();
   const updatedAt = issues.updated_at.replace("T", "-").replace("Z", "");
   const createAt = issues.created_at.replace("T", "-").replace("Z", "");
 
+  const onOpenDetailPage = () => {
+    navigate("/detailPage", {
+      state: {
+        issuesId: issues.id,
+      },
+    });
+  };
+
   return (
     <IssuesListPage>
-      <IssuesListBox>
+      <IssuesListBox onClick={onOpenDetailPage}>
         <IssuesTitle>
           {updatedAt}
           <p>{issues.title}</p>
@@ -33,6 +43,9 @@ const IssuesListBox = styled.div`
   width: 80%;
   height: 120px;
   margin: 20px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const IssuesTitle = styled.div`

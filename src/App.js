@@ -1,14 +1,14 @@
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import IssuesPage from "./issuesList";
+import { RouterProvider } from "react-router-dom";
+import router from "./route/route";
 
 function App() {
   return (
     <Provider store={store}>
-      <div>
-        <h1>GitHub IssuesList</h1>
-      </div>
-      <IssuesPage />
+      <h1>GitHub IssuesList</h1>
+
+      <RouterProvider router={router} />
     </Provider>
   );
 }
