@@ -11,6 +11,7 @@ const initialState = {
   currentPage: 1,
   startPage: 1,
   endPage: 10,
+  showPageNum: 10,
 };
 
 export const asyncIssues = createAsyncThunk(
@@ -49,6 +50,9 @@ export const issuesSlice = createSlice({
     setEndPage: (state, action) => {
       state.endPage = action.payload;
     },
+    setShowPageNum: (state, action) => {
+      state.showPageNum = action.payload;
+    },
   },
   // ---------------------------------
 
@@ -65,5 +69,10 @@ export const issuesSlice = createSlice({
   },
 });
 
-export const { getIssues, setCurrentPage, setStartPage, setEndPage } =
-  issuesSlice.actions;
+export const {
+  getIssues,
+  setCurrentPage,
+  setStartPage,
+  setEndPage,
+  setShowPageNum,
+} = issuesSlice.actions;
