@@ -1,0 +1,57 @@
+import { styled } from "styled-components";
+
+const OneIssuesList = ({ issues }) => {
+  console.log(issues);
+
+  const updatedAt = issues.updated_at.replace("T", "-").replace("Z", "");
+  const createAt = issues.created_at.replace("T", "-").replace("Z", "");
+
+  return (
+    <IssuesListPage>
+      <IssuesListBox>
+        <IssuesTitle>
+          {updatedAt}
+          <p>{issues.title}</p>
+          <p>comments({issues.comments})</p>
+        </IssuesTitle>
+        <hr />
+        <IssuesBody>{issues.body}</IssuesBody>
+        <IssuesCreateAt>{createAt}</IssuesCreateAt>
+      </IssuesListBox>
+    </IssuesListPage>
+  );
+};
+export default OneIssuesList;
+
+const IssuesListPage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const IssuesListBox = styled.div`
+  border: solid 1px #000;
+  width: 80%;
+  height: 120px;
+  margin: 20px;
+`;
+
+const IssuesTitle = styled.div`
+  text-align: center;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const IssuesBody = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+const IssuesCreateAt = styled.div`
+  font-size: small;
+  opacity: 0.5;
+  text-align: right;
+  vertical-align: bottom;
+`;
