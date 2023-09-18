@@ -14,8 +14,6 @@ const IssuesPage = () => {
     (state) => state.issues
   );
 
-  console.log(status);
-
   // 이거 써야 issues값 사용 가능
   useEffect(() => {
     dispatch(asyncIssues());
