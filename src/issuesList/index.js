@@ -6,6 +6,7 @@ import PageIssues from "./components/pagination";
 import ChangeShowNum from "./components/filter/changeShowNum";
 import IssuesFilter from "./components/filter/issuesFilter";
 import LoadingPage from "./lodingPage";
+import styled from "styled-components";
 
 const IssuesPage = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const IssuesPage = () => {
   const pageIssues = issues !== null && issues.slice(startIndex, endIndex);
 
   return (
-    <div>
+    <Wrapper>
       {status === "Loading" && <LoadingPage />}
       <ChangeShowNum />
       <IssuesFilter />
@@ -34,7 +35,21 @@ const IssuesPage = () => {
           <OneIssuesList key={issues.id} issues={issues} />
         ))}
       <PageIssues />
-    </div>
+    </Wrapper>
   );
 };
 export default IssuesPage;
+
+const Wrapper = styled.div`
+  @media ${({ theme }) => theme.device.mobile} {
+    flex-direction: column;
+  }
+  @media ${({ theme }) => theme.device.tablet} {
+    flex-direction: column;
+  }
+  @media ${({ theme }) => theme.device.laptop} {
+    flex-direction: column;
+  }
+
+  width: 100%;
+`;
