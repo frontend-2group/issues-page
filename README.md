@@ -5,7 +5,7 @@
 김지원, 안주현, 오주연, 이대경, 정수현, 전경미
 
 - 사용 기술 스택
-  <img src="https://img.shields.io/badge/표시할이름-색상?style=for-the-badge&logo=REACT&logoColor=white">
+  <img src="https://img.shields.io/badge/REACT-색상?style=for-the-badge&logo=REACT&logoColor=white">
 
 - 프로젝트 설명
   깃허브 open api를 활용하여 이슈 목록을 조회하는 웹 페이지를 만들었습니다.
